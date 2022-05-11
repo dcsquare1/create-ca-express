@@ -40,12 +40,45 @@ def onboard_user():
         capabilities={
             "card_payments": {"requested": True},
             "transfers": {"requested": True},
+            "cartes_bancaires_payments": {"requested": True},
+            "sepa_debit_payments": {"requested": True},
         },
         business_type="company",
-        business_profile={"url": "https://exampleDC.com"},
+        business_profile={
+            "url": "https://exampleDC.com",
+            "name": "BUSINESS NAME",
+            "mcc": "5511", #car_and_truck_dealers_new_used,
+            "support_phone": "+33000000000",
+            "support_address": {
+                "city": "PARIS",
+                "country": "FR",
+                "line1": "5, SQUARE DU RHONE",
+                "line2": "",
+                "postal_code": "75017",
+                "state": "",
+            },
+        },
         company={
-            "name": "Test Python",
-            "tax_id": "123456789"
+            "name": "COMPANY NAME",
+            "tax_id": "805328234",
+            #"structure": "private_company",
+            "address": {
+                "city": "PARIS",
+                "country": "FR",
+                "line1": "7, SQUARE DU RHONE",
+                "line2": "",
+                "postal_code": "75017",
+                "state": "",
+            },
+            "phone": "+33000000000",
+        },
+        bank_account={
+            "account_number": "FR1420041010050500013M02606",
+            "country": "FR",
+            "currency": "EUR",
+        },
+        metadata={
+            "code_sap": "code_sap_123"
         },
     )
     # Store the account ID.
